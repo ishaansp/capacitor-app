@@ -33,6 +33,9 @@ jobs:
       - name: Copy web assets
         run: npx cap copy ios
 
+      - name: Install Xcode command line tools
+        run: xcode-select --install || true
+
       - name: Build iOS project
         run: |
           cd ios/App
