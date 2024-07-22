@@ -24,14 +24,14 @@ jobs:
       - name: Build web assets
         run: npm run build
 
-      - name: Install Capacitor CLI
-        run: npm install -g @capacitor/cli
+      - name: Remove existing iOS platform
+        run: rm -rf ios || true
 
       - name: Add iOS platform
         run: npx cap add ios
 
       - name: Copy web assets
-        run: npx cap copy
+        run: npx cap copy ios
 
       - name: Build iOS project
         run: |
